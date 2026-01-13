@@ -1,6 +1,8 @@
+// Local (for development)
 // const API_BASE_URL = "http://127.0.0.1:8000";
-const API_BASE_URL = "https://YOUR-BACKEND.onrender.com";
 
+// Production (Render backend)
+const API_BASE_URL = "https://cardio-ai-5md2.onrender.com";
 
 export async function predictRisk(formData) {
   const payload = {
@@ -13,16 +15,20 @@ export async function predictRisk(formData) {
     smoke: Number(formData.smoke),
     alco: Number(formData.alco),
     active: Number(formData.active),
-    gender: Number(formData.gender)
+    gender: Number(formData.gender),
   };
 
   const response = await fetch(`${API_BASE_URL}/predict`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
   });
 
   if (!response.ok) {
+    const errorText = await response.text();
+    console.error("Prediction API error:", errorText);
     throw new Error("Prediction failed");
   }
 
