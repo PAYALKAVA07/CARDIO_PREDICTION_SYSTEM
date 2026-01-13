@@ -1,0 +1,17 @@
+{
+    "model_name": "Random Forest",
+    "accuracy": 0.7369191364800586,
+    "roc_auc": 0.8027932435219911,
+    "features": [
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "BMI",
+        "cholesterol",
+        "gluc",
+        "smoke",
+        "alco",
+        "active",
+        "gender"
+    ]
+}
