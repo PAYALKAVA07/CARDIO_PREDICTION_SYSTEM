@@ -99,7 +99,7 @@ export default function Navbar() {
               </MobileItem>
 
               <MobileItem to="/comparison" icon={BarChart3} onClick={setOpen}>
-                Comparison
+                Model Analytics
               </MobileItem>
             </div>
           </motion.div>
