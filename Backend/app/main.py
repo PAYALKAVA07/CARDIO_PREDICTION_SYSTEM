@@ -127,6 +127,15 @@ class InputData(BaseModel):
     active: int
     gender: int
 
+
+# ---------------- RISK LOGIC ----------------
+def risk_category(prob):
+    if prob < 0.30:
+        return "Low Risk"
+    elif prob < 0.70:
+        return "Medium Risk"
+    else:
+        return "High Risk"
 # ---------------- ROUTES ----------------
 
 @app.get("/")
@@ -153,7 +162,9 @@ def predict(data: InputData):
 
     return {
         "prediction": pred,
-        "risk_probability": round(float(prob), 4)
+        "risk_probability": round(float(prob), 4),
+        "risk_percentage": round(prob * 100, 2),
+        "risk_level": risk_category(prob)
     }
 
 @app.get("/metrics")
