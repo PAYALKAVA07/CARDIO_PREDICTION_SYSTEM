@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { fetchMetrics } from "../../services/metricsService";
 
+import ModelComparisonTable from "../../components/charts/ModelComparisonTable";
 import CorrelationMatrix from "../../components/charts/CorrelationMatrix";
 import ConfusionMatrix from "../../components/charts/ConfusionMatrix";
 import FeatureImportance from "../../components/charts/FeatureImportance";
@@ -82,6 +83,10 @@ export default function ModelComparison() {
             value="ROC-AUC + Accuracy"
             desc="Best model selected based on discrimination and correctness."
           />
+        </div>
+        {/* ================= ALGORITHM COMPARISON ================= */}
+        <div className="mb-24">
+          <ModelComparisonTable data={metrics.model_comparison} />
         </div>
         {/* ================= PERFORMANCE + ROC ================= */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-24 items-stretch">

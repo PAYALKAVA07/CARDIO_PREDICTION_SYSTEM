@@ -86,7 +86,38 @@ metrics = {
     },
     "feature_importance": feature_importance,
     "correlation_matrix": df[FEATURES].corr().round(2).values.tolist(),
-    "features": FEATURES
+    "features": FEATURES,
+    # ======================================================
+# MODEL COMPARISON (FROM VALIDATED EXPERIMENTS)
+# ======================================================
+
+"model_comparison": [
+    {
+        "model": "Random Forest",
+        "accuracy": 0.7369,
+        "roc_auc": 0.8028,
+        "selected": True
+    },
+    {
+        "model": "Decision Tree",
+        "accuracy": 0.7340,
+        "roc_auc": 0.7940,
+        "selected": False
+    },
+    {
+        "model": "Logistic Regression",
+        "accuracy": 0.7269,
+        "roc_auc": 0.7925,
+        "selected": False
+    },
+    {
+        "model": "KNN",
+        "accuracy": 0.7152,
+        "roc_auc": 0.7685,
+        "selected": False
+    }
+]
+
 }
 
 with open(OUTPUT_PATH, "w") as f:

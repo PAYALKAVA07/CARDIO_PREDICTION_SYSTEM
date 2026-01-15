@@ -157,5 +157,31 @@
     "alco",
     "active",
     "gender"
+  ],
+  "model_comparison": [
+    {
+      "model": "Random Forest",
+      "accuracy": 0.7369,
+      "roc_auc": 0.8028,
+      "selected": true
+    },
+    {
+      "model": "Decision Tree",
+      "accuracy": 0.734,
+      "roc_auc": 0.794,
+      "selected": false
+    },
+    {
+      "model": "Logistic Regression",
+      "accuracy": 0.7269,
+      "roc_auc": 0.7925,
+      "selected": false
+    },
+    {
+      "model": "KNN",
+      "accuracy": 0.7152,
+      "roc_auc": 0.7685,
+      "selected": false
+    }
   ]
 }
