@@ -77,7 +77,7 @@ export default function StepLifestyle({ form }) {
         </div>
 
         {/* Smoking */}
-        <Toggle
+        <CheckboxToggle
           label="Do you smoke?"
           value={formData.smoke}
           onChange={(val) => updateField("smoke", val)}
@@ -85,7 +85,7 @@ export default function StepLifestyle({ form }) {
         />
 
         {/* Alcohol */}
-        <Toggle
+        <CheckboxToggle
           label="Do you consume alcohol?"
           value={formData.alco}
           onChange={(val) => updateField("alco", val)}
@@ -93,7 +93,7 @@ export default function StepLifestyle({ form }) {
         />
 
         {/* Physical Activity */}
-        <Toggle
+        <CheckboxToggle
           label="Are you physically active?"
           value={formData.active}
           onChange={(val) => updateField("active", val)}
@@ -109,31 +109,36 @@ export default function StepLifestyle({ form }) {
   );
 }
 
-/* ---------- Toggle Component ---------- */
+/* ---------- Checkbox Toggle Component ---------- */
 
-function Toggle({ label, value, onChange, error }) {
+function CheckboxToggle({ label, value, onChange, error }) {
   return (
     <div>
-      <p className="text-sm font-medium text-slate-700 mb-1">{label}</p>
-      <div className="flex gap-4">
-        <button
-          type="button"
-          onClick={() => onChange("1")}
-          className={`px-4 py-2 rounded-md border
-            ${value === "1" ? "bg-blue-600 text-white" : ""}`}
-        >
-          Yes
-        </button>
-        <button
-          type="button"
-          onClick={() => onChange("0")}
-          className={`px-4 py-2 rounded-md border
-            ${value === "0" ? "bg-blue-600 text-white" : ""}`}
-        >
-          No
-        </button>
+      <p className="text-sm font-medium text-slate-700 mb-2">{label}</p>
+
+      <div className="flex items-center gap-6">
+        <label className="flex items-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={value === "1"}
+            onChange={() => onChange("1")}
+            className="accent-blue-600"
+          />
+          <span className="text-sm text-slate-700">Yes</span>
+        </label>
+
+        <label className="flex items-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={value === "0"}
+            onChange={() => onChange("0")}
+            className="accent-blue-600"
+          />
+          <span className="text-sm text-slate-700">No</span>
+        </label>
       </div>
-      {error && <p className="text-xs text-red-600">{error}</p>}
+
+      {error && <p className="text-xs text-red-600 mt-1">{error}</p>}
     </div>
   );
 }
