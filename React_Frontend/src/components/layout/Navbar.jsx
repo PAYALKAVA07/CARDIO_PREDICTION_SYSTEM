@@ -51,7 +51,7 @@ export default function Navbar() {
             </NavItem>
 
             <NavItem to="/comparison" icon={BarChart3}>
-              Comparison
+              Model Analytics
             </NavItem>
           </div>
 
